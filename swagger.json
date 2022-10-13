@@ -1,0 +1,31 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Smart Pantry",
+    "description": "An API for tracking food and supply inventory",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "authorizationUrl": "loginauth",
+      "flow": "authorizationCode"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
