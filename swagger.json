@@ -17,7 +17,26 @@
   },
   "paths": {
     "/food/": {
+      "get": {
+        "tags": ["food"],
+        "summary": "Get all food items",
+        "description": "Returns a list of all food items",
+        "operationId": "getFood",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
       "post": {
+        "tags": ["food"],
         "description": "Add a food item to your inventory!",
         "parameters": [
           {
@@ -49,10 +68,127 @@
             "description": "Item Added!"
           }
         }
+      },
+      "delete": {
+        "tags": ["food"],
+        "description": "Delete a food item from your inventory!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Grapes"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Item Deleted!"
+          }
+        }
+      }
+    },
+    "/food/{inCart}": {
+      "get": {
+        "tags": ["food"],
+        "summary": "Get food item by category",
+        "description": "Returns food item by category",
+        "produces": ["application/json"],
+        "operationId": "getFoodByCategory",
+        "parameters": [
+          {
+            "cat": "category",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/food/{cat}": {
+      "get": {
+        "tags": ["food"],
+        "summary": "Get food item by category",
+        "description": "Returns food item by category",
+        "produces": ["application/json"],
+        "operationId": "getFoodByCategory",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/food/{itemName}": {
+      "get": {
+        "tags": ["food"],
+        "summary": "Get food item by name",
+        "description": "Returns food item by name",
+        "produces": ["application/json"],
+        "operationId": "getFoodByName",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/supplies/": {
+      "get": {
+        "tags": ["supplies"],
+        "summary": "Get all supply items",
+        "description": "Returns a list of all supply items",
+        "operationId": "getSupplies",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
       "post": {
+        "tags": ["supplies"],
         "description": "Add a non-food item to your inventory!",
         "parameters": [
           {
@@ -78,11 +214,133 @@
               }
             }
           }
-        ]
+        ],
+        "responses": {
+         "201": {
+          "description": "Item Added!"
+         }
+       }
+      },
+      "delete": {
+        "tags": ["supplies"],
+        "description": "Delete a non-food item from your inventory!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Toilet Paper"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Item Deleted!"
+          }
+        }
+      }
+    },
+    "/supplies/{inCart}": {
+      "get": {
+        "tags": ["supplies"],
+        "summary": "Get supply item by category",
+        "description": "Returns supply item by category",
+        "produces": ["application/json"],
+        "operationId": "getSuppliesByCategory",
+        "parameters": [
+          {
+            "cat": "category",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/supplies/{color}": {
+      "get": {
+        "tags": ["supplies"],
+        "summary": "Get supply item by color",
+        "description": "Returns supply item by color",
+        "produces": ["application/json"],
+        "operationId": "getSuppliesByColor",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/supplies/{itemName}": {
+      "get": {
+        "tags": ["supplies"],
+        "summary": "Get supply item by name",
+        "description": "Returns supply item by name",
+        "produces": ["application/json"],
+        "operationId": "getSuppliesByName",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/ordered/": {
+      "get": {
+        "tags": ["ordered"],
+        "summary": "Get all ordered items",
+        "description": "Returns a list of all ordered items",
+        "operationId": "getOrdered",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
       "post": {
+        "tags": ["ordered"],
         "description": "Add an Order!",
         "parameters": [
           {
@@ -118,11 +376,133 @@
               }
             }
           }
-        ]
+        ],
+        "responses": {
+          "201": {
+            "description": "Item Added!"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["ordered"],
+        "description": "Delete an Order!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "socks"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Item Deleted!"
+          }
+        }
+      }
+    },
+    "/ordered/{orderId}": {
+      "get": {
+        "tags": ["ordered"],
+        "summary": "Get ordered item by id",
+        "description": "Returns ordered item by id",
+        "produces": ["application/json"],
+        "operationId": "getOrderedById",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/ordered/{dateOrdered}": {
+      "get": {
+        "tags": ["ordered"],
+        "summary": "Get ordered item by date",
+        "description": "Returns ordered item by date",
+        "produces": ["application/json"],
+        "operationId": "getOrderedByDate",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/ordered/{eta}": {
+      "get": {
+        "tags": ["ordered"],
+        "summary": "Get ordered item by eta",
+        "description": "Returns ordered item by eta",
+        "produces": ["application/json"],
+        "operationId": "getOrderedByEta",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/users/": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get all users",
+        "description": "Returns a list of all users",
+        "operationId": "getUsers",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
       "post": {
+        "tags": ["users"],
         "description": "Add a user!",
         "parameters": [
           {
@@ -141,6 +521,99 @@
             }
           }
         ]
+      },
+      "delete": {
+        "tags": ["users"],
+        "description": "Delete a user!",
+        "parameters": [
+          {
+            "body": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "myusername1"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/users/{login}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "user login",
+        "description": "logs user in",
+        "produces": ["application/json"],
+        "operationId": "getUsersByLogin",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/{logout}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "user logout",
+        "description": "logs user out",
+        "produces": ["application/json"],
+        "operationId": "getUsersByLogout",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/{username}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get user by username",
+        "description": "Returns user by username",
+        "produces": ["application/json"],
+        "operationId": "getUsersByUsername",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     }
   }
