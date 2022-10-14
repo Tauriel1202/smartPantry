@@ -16,15 +16,131 @@
     }
   },
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "parameters": [],
+    "/food/": {
+      "post": {
+        "description": "Add a food item to your inventory!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cat": {
+                  "example": "Fruit"
+                },
+                "itemName": {
+                  "example": "Grapes"
+                },
+                "stock": {
+                  "type": "int",
+                  "example": 0
+                },
+                "inCart": {
+                  "type": "bool",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Item Added!"
           }
         }
+      }
+    },
+    "/supplies/": {
+      "post": {
+        "description": "Add a non-food item to your inventory!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Toilet Paper"
+                },
+                "stock": {
+                  "type": "int",
+                  "example": 3
+                },
+                "inCart": {
+                  "type": "bool",
+                  "example": false
+                },
+                "color": {
+                  "example": "n/a"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/ordered/": {
+      "post": {
+        "description": "Add an Order!",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "socks"
+                },
+                "quantityOrdered": {
+                  "type": "int",
+                  "example": "1"
+                },
+                "color": {
+                  "example": "pink/grey"
+                },
+                "dateOrdered": {
+                  "example": "10/12/22"
+                },
+                "eta": {
+                  "example": "10/14/22"
+                },
+                "price": {
+                  "type": "int",
+                  "example": 20
+                },
+                "gift": {
+                  "type": "bool",
+                  "example": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/users/": {
+      "post": {
+        "description": "Add a user!",
+        "parameters": [
+          {
+            "body": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "myusername1"
+                },
+                "email": {
+                  "example": "myemail@gmail.com"
+                }
+              }
+            }
+          }
+        ]
       }
     }
   }
