@@ -69,6 +69,7 @@
           }
         }
       },
+
       "delete": {
         "tags": ["food"],
         "description": "Delete a food item from your inventory!",
@@ -168,6 +169,32 @@
         }
       }
     },
+
+    "/food/{itemname}": {
+      "put": {
+        "tags": ["food"],
+        "description": "Modify food name",
+        "produces": ["application/json"],
+        "operationId": "updateFood",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Name Updated"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+
     "/supplies/": {
       "get": {
         "tags": ["supplies"],
@@ -221,6 +248,7 @@
          }
        }
       },
+
       "delete": {
         "tags": ["supplies"],
         "description": "Delete a non-food item from your inventory!",
@@ -320,6 +348,32 @@
         }
       }
     },
+
+    "/supplies/{itemname}": {
+      "put": {
+        "tags": ["supplies"],
+        "description": "Modify supply name",
+        "produces": ["application/json"],
+        "operationId": "updateSupply",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Supply Item Updated!"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+
     "/ordered/": {
       "get": {
         "tags": ["ordered"],
@@ -482,6 +536,32 @@
         }
       }
     },
+
+    "/order/{orderId}": {
+      "put": {
+        "tags": ["ordered"],
+        "description": "Modify order id",
+        "produces": ["application/json"],
+        "operationId": "putOrderId",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order Id Updated"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+
     "/users/": {
       "get": {
         "tags": ["users"],
@@ -609,6 +689,31 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+
+    "/user/{username}": {
+      "put": {
+        "tags": ["users"],
+        "description": "Modify username",
+        "produces": ["application/json"],
+        "operationId": "putUsername",
+        "parameters": [
+          {
+            "id": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Username Updated"
           },
           "400": {
             "description": "Bad Request"
