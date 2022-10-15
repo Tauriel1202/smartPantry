@@ -21,14 +21,12 @@
         "tags": ["food"],
         "summary": "Get all food items",
         "description": "Returns a list of all food items",
+        "parameters": [],
         "operationId": "getFood",
         "produces": ["application/json"],
         "responses": {
           "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "Invalid status value"
@@ -37,6 +35,7 @@
       },
       "post": {
         "tags": ["food"],
+        "summary": "Add a food item!",
         "description": "Add a food item to your inventory!",
         "parameters": [
           {
@@ -68,42 +67,18 @@
             "description": "Item Added!"
           }
         }
-      },
-
-      "delete": {
-        "tags": ["food"],
-        "description": "Delete a food item from your inventory!",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "itemName": {
-                  "example": "Grapes"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Item Deleted!"
-          }
-        }
       }
     },
     "/food/{inCart}": {
       "get": {
         "tags": ["food"],
-        "summary": "Get food item by category",
-        "description": "Returns food item by category",
+        "summary": "Get food item by cart status",
+        "description": "Returns food item by cart status",
         "produces": ["application/json"],
-        "operationId": "getFoodByCategory",
+        "operationId": "getFoodByCartStatus",
         "parameters": [
           {
-            "cat": "category",
+            "name": "inCart",
             "in": "path",
             "required": true,
             "type": "string"
@@ -128,7 +103,7 @@
         "operationId": "getFoodByCategory",
         "parameters": [
           {
-            "id": "id",
+            "name": "cat",
             "in": "path",
             "required": true,
             "type": "string"
@@ -153,7 +128,7 @@
         "operationId": "getFoodByName",
         "parameters": [
           {
-            "id": "id",
+            "name": "itemName",
             "in": "path",
             "required": true,
             "type": "string"
@@ -167,18 +142,60 @@
             "description": "Bad Request"
           }
         }
-      }
-    },
-
-    "/food/{itemname}": {
+      },
       "put": {
         "tags": ["food"],
-        "description": "Modify food name",
+        "summary": "Update food item",
+        "description": "Modify food",
         "produces": ["application/json"],
         "operationId": "updateFood",
         "parameters": [
           {
-            "id": "id",
+            "name": "itemName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cat": {
+                  "example": "Fruit"
+                },
+                "itemName": {
+                  "example": "Grapes"
+                },
+                "stock": {
+                  "type": "int",
+                  "example": 0
+                },
+                "inCart": {
+                  "type": "bool",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["food"],
+        "summary": "Delete food item",
+        "description": "Delete a Food Item!",
+        "parameters": [
+          {
+            "name": "itemName",
             "in": "path",
             "required": true,
             "type": "string"
@@ -186,10 +203,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Name Updated"
-          },
-          "400": {
-            "description": "Bad Request"
+            "description": "Deleted!"
           }
         }
       }
@@ -216,6 +230,7 @@
       },
       "post": {
         "tags": ["supplies"],
+        "summary": "Add a non-food item",
         "description": "Add a non-food item to your inventory!",
         "parameters": [
           {
@@ -243,32 +258,8 @@
           }
         ],
         "responses": {
-         "201": {
-          "description": "Item Added!"
-         }
-       }
-      },
-
-      "delete": {
-        "tags": ["supplies"],
-        "description": "Delete a non-food item from your inventory!",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "itemName": {
-                  "example": "Toilet Paper"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
           "201": {
-            "description": "Item Deleted!"
+            "description": "Item Added!"
           }
         }
       }
@@ -282,7 +273,7 @@
         "operationId": "getSuppliesByCategory",
         "parameters": [
           {
-            "cat": "category",
+            "name": "inCart",
             "in": "path",
             "required": true,
             "type": "string"
@@ -307,7 +298,7 @@
         "operationId": "getSuppliesByColor",
         "parameters": [
           {
-            "id": "id",
+            "name": "color",
             "in": "path",
             "required": true,
             "type": "string"
@@ -332,7 +323,7 @@
         "operationId": "getSuppliesByName",
         "parameters": [
           {
-            "id": "id",
+            "name": "itemName",
             "in": "path",
             "required": true,
             "type": "string"
@@ -346,21 +337,42 @@
             "description": "Bad Request"
           }
         }
-      }
-    },
-
-    "/supplies/{itemname}": {
+      },
       "put": {
         "tags": ["supplies"],
-        "description": "Modify supply name",
+        "summary": "Update a non-food item!",
+        "description": "Modify supply",
         "produces": ["application/json"],
         "operationId": "updateSupply",
         "parameters": [
           {
-            "id": "id",
+            "name": "itemName",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Toilet Paper"
+                },
+                "stock": {
+                  "type": "int",
+                  "example": 3
+                },
+                "inCart": {
+                  "type": "bool",
+                  "example": false
+                },
+                "color": {
+                  "example": "n/a"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -369,6 +381,24 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["supplies"],
+        "summary": "Delete a non-food item",
+        "description": "Delete an Item!",
+        "parameters": [
+          {
+            "name": "itemName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted!"
           }
         }
       }
@@ -395,6 +425,7 @@
       },
       "post": {
         "tags": ["ordered"],
+        "summary": "Add an Order!",
         "description": "Add an Order!",
         "parameters": [
           {
@@ -436,54 +467,6 @@
             "description": "Item Added!"
           }
         }
-      },
-      "delete": {
-        "tags": ["ordered"],
-        "description": "Delete an Order!",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "itemName": {
-                  "example": "socks"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Item Deleted!"
-          }
-        }
-      }
-    },
-    "/ordered/{orderId}": {
-      "get": {
-        "tags": ["ordered"],
-        "summary": "Get ordered item by id",
-        "description": "Returns ordered item by id",
-        "produces": ["application/json"],
-        "operationId": "getOrderedById",
-        "parameters": [
-          {
-            "id": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
       }
     },
     "/ordered/{dateOrdered}": {
@@ -495,7 +478,7 @@
         "operationId": "getOrderedByDate",
         "parameters": [
           {
-            "id": "id",
+            "name": "dateOrdered",
             "in": "path",
             "required": true,
             "type": "string"
@@ -520,7 +503,7 @@
         "operationId": "getOrderedByEta",
         "parameters": [
           {
-            "id": "id",
+            "name": "eta",
             "in": "path",
             "required": true,
             "type": "string"
@@ -536,19 +519,75 @@
         }
       }
     },
-
-    "/order/{orderId}": {
+    "/ordered/{orderId}": {
+      "get": {
+        "tags": ["ordered"],
+        "summary": "Get ordered item by id",
+        "description": "Returns ordered item by id",
+        "produces": ["application/json"],
+        "operationId": "getOrderedById",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
       "put": {
         "tags": ["ordered"],
-        "description": "Modify order id",
+        "summary": "Update an Order!",
+        "description": "Modify order",
         "produces": ["application/json"],
         "operationId": "putOrderId",
         "parameters": [
           {
-            "id": "id",
+            "name": "orderId",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "socks"
+                },
+                "quantityOrdered": {
+                  "type": "int",
+                  "example": "1"
+                },
+                "color": {
+                  "example": "pink/grey"
+                },
+                "dateOrdered": {
+                  "example": "10/12/22"
+                },
+                "eta": {
+                  "example": "10/14/22"
+                },
+                "price": {
+                  "type": "int",
+                  "example": 20
+                },
+                "gift": {
+                  "type": "bool",
+                  "example": true
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -557,6 +596,24 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["ordered"],
+        "summary": "Delete an Order!",
+        "description": "Delete an Order!",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted!"
           }
         }
       }
@@ -583,6 +640,7 @@
       },
       "post": {
         "tags": ["users"],
+        "summary": "Add a user!",
         "description": "Add a user!",
         "parameters": [
           {
@@ -601,24 +659,6 @@
             }
           }
         ]
-      },
-      "delete": {
-        "tags": ["users"],
-        "description": "Delete a user!",
-        "parameters": [
-          {
-            "body": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "example": "myusername1"
-                }
-              }
-            }
-          }
-        ]
       }
     },
     "/users/{login}": {
@@ -630,7 +670,7 @@
         "operationId": "getUsersByLogin",
         "parameters": [
           {
-            "id": "id",
+            "name": "login",
             "in": "path",
             "required": true,
             "type": "string"
@@ -655,7 +695,7 @@
         "operationId": "getUsersByLogout",
         "parameters": [
           {
-            "id": "id",
+            "name": "logout",
             "in": "path",
             "required": true,
             "type": "string"
@@ -680,7 +720,7 @@
         "operationId": "getUsersByUsername",
         "parameters": [
           {
-            "id": "id",
+            "name": "username",
             "in": "path",
             "required": true,
             "type": "string"
@@ -694,21 +734,34 @@
             "description": "Bad Request"
           }
         }
-      }
-    },
-
-    "/user/{username}": {
+      },
       "put": {
         "tags": ["users"],
+        "summary": "Update a User!",
         "description": "Modify username",
         "produces": ["application/json"],
         "operationId": "putUsername",
         "parameters": [
           {
-            "id": "id",
+            "name": "username",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "body": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "myusername1"
+                },
+                "email": {
+                  "example": "myemail@gmail.com"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -717,6 +770,24 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["users"],
+        "summary": "Delete a User!",
+        "description": "Delete a user!",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
