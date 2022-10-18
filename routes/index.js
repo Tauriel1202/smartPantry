@@ -12,4 +12,15 @@ routes.use('/', swagger)
 const food = require('./food')
 routes.use('/food', food)
 
+//supply routes
+const supplies = require('./supplies')
+routes.use('/supplies', supplies)
+
+//order routes
+const orders = require('./ordered')
+routes.use('/ordered', orders)
+
+const users = require('./users')
+routes.use('/users', users)
+
 module.exports = routes;

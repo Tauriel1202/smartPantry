@@ -10,7 +10,7 @@ console.log(supplies)
 
 
 //add one
-
+routes.post('/', supplies.addSupply)
 
 //get one - inCart
 

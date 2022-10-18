@@ -1,4 +1,5 @@
 //Localhost
+//Food
 
 ###Add a food item
 POST http://localhost:3000/food
@@ -9,4 +10,16 @@ Content-Type: application/json
   "itemName": "carrots",
   "stock": 4,
   "inCart": false
+}
+
+//Supplies
+### Add a non-food item
+POST http://localhost:3000/supplies
+Content-Type: application/json
+
+{
+  "itemName": "pencil",
+  "stock": 5,
+  "inCart": false,
+  "color": "grey/black"
 }

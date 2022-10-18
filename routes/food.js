@@ -7,10 +7,10 @@ console.log(food)
 
 
 //get all
-routes.post('/', food.addFood)
+
 
 //add one
-
+routes.post('/', food.addFood)
 
 //get one - inCart
 
