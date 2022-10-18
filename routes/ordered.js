@@ -10,7 +10,7 @@ console.log(ordered)
 
 
 //add one
-
+routes.post('/', ordered.addOrder)
 
 //get one - inCart
 

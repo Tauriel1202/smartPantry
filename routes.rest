@@ -23,3 +23,18 @@ Content-Type: application/json
   "inCart": false,
   "color": "grey/black"
 }
+
+//Orders
+### Add an order
+POST http://localhost:3000/ordered
+Content-Type: application/json
+
+{
+  "itemName": "water bottle lid", 
+  "quantityOrdered": 2,
+  "color": "pink",
+  "dateOrdered": "10/15/22",
+  "eta": "10/20/22",
+  "price": 15,
+  "gift": true
+}
