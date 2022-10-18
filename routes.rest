@@ -1,0 +1,12 @@
+//Localhost
+
+###Add a food item
+POST http://localhost:3000/food
+Content-Type: application/json
+
+{
+  "cat": "vegetable",
+  "itemName": "carrots",
+  "stock": 4,
+  "inCart": false
+}
