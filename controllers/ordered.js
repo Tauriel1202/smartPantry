@@ -1,14 +1,12 @@
 //orders controller
-const { MongoClient, ObjectId } = require("mongodb");
-const uri = process.env.MONGO_URI.replace("inventory", "ordered");
-const client = new MongoClient(uri);
-const base = client.db("inventory").collection("ordered");
+const base = require("../dataBase/connect");
 
 console.log("Orders Controllers: ");
 
 async function addOrder(req, res) {
   try {
     await base
+      .connectToBase("ordered")
       .insertOne({
         itemName: req.body.itemName,
         quantityOrdered: req.body.quantityOrdered,

@@ -1,14 +1,12 @@
 //users controller
-const { MongoClient, ObjectId } = require("mongodb");
-const uri = process.env.MONGO_URI.replace("inventory", "users");
-const client = new MongoClient(uri);
-const base = client.db("inventory").collection("users");
+const base = require("../dataBase/connect");
 
 console.log("User Controllers: ");
 
 async function addUser(req, res) {
   try {
     await base
+      .connectToBase("users")
       .insertOne({
         username: req.body.username,
         email: req.body.email,

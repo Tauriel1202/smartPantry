@@ -7,9 +7,9 @@ Content-Type: application/json
 
 {
   "cat": "vegetable",
-  "itemName": "carrots",
-  "stock": 4,
-  "inCart": false
+  "itemName": "celery",
+  "stock": 0,
+  "inCart": true
 }
 
 //Supplies
@@ -18,10 +18,10 @@ POST http://localhost:3000/supplies
 Content-Type: application/json
 
 {
-  "itemName": "pencil",
-  "stock": 5,
-  "inCart": false,
-  "color": "grey/black"
+  "itemName": "pool hose",
+  "stock": 0,
+  "inCart": true,
+  "color": "grey"
 }
 
 //Orders
@@ -30,13 +30,13 @@ POST http://localhost:3000/ordered
 Content-Type: application/json
 
 {
-  "itemName": "water bottle lid", 
-  "quantityOrdered": 2,
-  "color": "pink",
-  "dateOrdered": "10/15/22",
+  "itemName": "goldfish crackers", 
+  "quantityOrdered": 1,
+  "color": "n/a",
+  "dateOrdered": "09/12/22",
   "eta": "10/20/22",
-  "price": 15,
-  "gift": true
+  "price": 12,
+  "gift": false
 }
 
 //Users
@@ -45,6 +45,6 @@ POST http://localhost:3000/users
 Content-type: application/json
 
 {
-  "username": "superElf222",
-  "email": "galadrielrules@imaelf.com"
+  "username": "kaisis",
+  "email": "kaiconserve@wayuisland.com"
 }

@@ -1,14 +1,12 @@
 //supplies controller
-const { MongoClient, ObjectId } = require("mongodb");
-const uri = process.env.MONGO_URI.replace("inventory", "supplies");
-const client = new MongoClient(uri);
-const base = client.db("inventory").collection("supplies");
+const base = require("../dataBase/connect");
 
 console.log("Supply Controllers: ");
 
 async function addSupply(req, res) {
   try {
     await base
+      .connectToBase("supplies")
       .insertOne({
         itemName: req.body.itemName,
         stock: req.body.stock,
