@@ -22,9 +22,10 @@ routes.post('/', ordered.addOrder)
 
 
 //update one - itemName
-
+routes.put("/:id", ordered.updateOrder)
 
 //delete one - itemName
+routes.delete("/:id", ordered.deleteOrder);
 
 
 module.exports = routes;
