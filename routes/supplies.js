@@ -20,11 +20,11 @@ routes.post('/', supplies.addSupply)
 
 //get one - itemName
 
-
 //update one - itemName
-
+routes.put("/:id", supplies.updateSupply)
 
 //delete one - itemName
+routes.delete("/:id", supplies.deleteSupply);
 
 
 module.exports = routes;

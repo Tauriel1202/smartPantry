@@ -23,4 +23,40 @@ async function addSupply(req, res) {
   }
 }
 
-module.exports = { addSupply };
+async function updateSupply(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .insertOne({
+        itemName: req.body.itemName,
+        stock: req.body.stock,
+        inCart: req.body.inCart,
+        color: req.body.color,
+      })
+      .then((item) => {
+        console.log(item);
+        res.status(201).send(item);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
+  }
+}
+
+async function deleteSupply(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .insertOne({
+        itemName: req.body.itemName,
+      })
+      .then((item) => {
+        console.log(item);
+        res.status(201).send(item);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
+  }
+}
+module.exports = { addSupply, updateSupply, deleteSupply };
