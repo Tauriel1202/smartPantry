@@ -23,4 +23,44 @@ async function addFood(req, res) {
   }
 }
 
-module.exports = { addFood };
+async function updateFood(req, res) {
+  try {
+    await base
+      .connectToBase("food")
+      .updatetOne({
+        cat: req.body.cat,
+        itemName: req.body.itemName,
+        stock: req.body.stock,
+        inCart: req.body.inCart,
+      })
+      .then((food) => {
+        console.log(food);
+        res.status(201).send(food);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
+  }
+}
+
+async function deleteFood(req, res) {
+   try {
+    await base
+      .connectToBase("food")
+      .deleteOne({
+        _cat: req.body.cat,
+        itemName: req.body.itemName,
+        stock: req.body.stock,
+        inCart: req.body.inCart,
+      })
+      .then((food) => {
+        console.log(food);
+        res.status(201).send(food);
+      });
+  } catch (e) {
+    console.log(`🚫 ${e} 🚫`);
+    res.status(500).send(`🚫 ${e} 🚫`);
+  }
+}
+
+module.exports = { addFood, updateFood, deleteFood };

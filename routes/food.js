@@ -22,9 +22,9 @@ routes.post('/', food.addFood)
 
 
 //update one - itemName
-
+routes.put("/:id", food.updateFood)
 
 //delete one - itemName
-
+routes.delete("/:id",  food.deleteFood);
 
 module.exports = routes;
