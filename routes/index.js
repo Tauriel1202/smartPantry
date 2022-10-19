@@ -20,6 +20,7 @@ routes.use('/supplies', supplies)
 const orders = require('./ordered')
 routes.use('/ordered', orders)
 
+//user routes
 const users = require('./users')
 routes.use('/users', users)
 

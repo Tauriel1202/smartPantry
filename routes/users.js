@@ -7,7 +7,7 @@ console.log(users)
 
 
 //get all
-
+routes.get('/', users.getUser)
 
 //add one
 routes.post('/', users.addUser)

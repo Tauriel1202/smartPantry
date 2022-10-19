@@ -1,0 +1,30 @@
+//SUPPLY TESTING
+//Localhost
+
+### Get all
+GET http://localhost:3000/supplies
+
+### Add a non-food item
+POST http://localhost:3000/supplies
+Content-Type: application/json
+
+{
+  "itemName": "pencil",
+    "stock": 5,
+    "inCart": false,
+    "color": "grey/black"
+}
+
+### Update a non-food item
+PUT http://localhost:3000/supplies/634f6d901c82d60bdfaf317e
+Content-Type: application/json
+
+{
+  "itemName": "pencil",
+    "stock": 5,
+    "inCart": false,
+    "color": "grey/black"
+}
+
+### Delete a non-food item
+DELETE http://localhost:3000/supplies/634f1e505766ea78ef15bdcc

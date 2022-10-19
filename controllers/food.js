@@ -1,5 +1,6 @@
 //food controller
 const base = require("../dataBase/connect");
+const oId = require("mongodb").ObjectId;
 
 console.log("Food Controllers: ");
 
@@ -27,15 +28,22 @@ async function updateFood(req, res) {
   try {
     await base
       .connectToBase("food")
-      .updatetOne({
-        cat: req.body.cat,
-        itemName: req.body.itemName,
-        stock: req.body.stock,
-        inCart: req.body.inCart,
-      })
+      .updateOne(
+        {
+          _id: new oId(req.params.id),
+        },
+        {
+          $set: {
+            cat: req.body.cat,
+            itemName: req.body.itemName,
+            stock: req.body.stock,
+            inCart: req.body.inCart,
+          },
+        }
+      )
       .then((food) => {
         console.log(food);
-        res.status(201).send(food);
+        res.status(204).send(food);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
@@ -44,15 +52,15 @@ async function updateFood(req, res) {
 }
 
 async function deleteFood(req, res) {
-   try {
+  try {
     await base
       .connectToBase("food")
       .deleteOne({
-        itemName: req.body.itemName
+        _id: new oId(req.params.id),
       })
       .then((food) => {
         console.log(food);
-        res.status(201).send(food);
+        res.status(200).send(food);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);

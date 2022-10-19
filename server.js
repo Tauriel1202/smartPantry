@@ -32,9 +32,9 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/users", requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
+// app.get("/users", requiresAuth(), (req, res) => {
+//   res.send(JSON.stringify(req.oidc.user));
+// });
 
 //body parser
 const bodyParser = require("body-parser");

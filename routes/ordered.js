@@ -21,10 +21,10 @@ routes.post('/', ordered.addOrder)
 //get one - itemName
 
 
-//update one - itemName
+//update one - id
 routes.put("/:id", ordered.updateOrder)
 
-//delete one - itemName
+//delete one - id
 routes.delete("/:id", ordered.deleteOrder);
 
 
