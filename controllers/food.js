@@ -48,10 +48,7 @@ async function deleteFood(req, res) {
     await base
       .connectToBase("food")
       .deleteOne({
-        _cat: req.body.cat,
-        itemName: req.body.itemName,
-        stock: req.body.stock,
-        inCart: req.body.inCart,
+        itemName: req.body.itemName
       })
       .then((food) => {
         console.log(food);
