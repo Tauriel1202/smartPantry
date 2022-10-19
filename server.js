@@ -11,26 +11,26 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 //login
-const { auth, requiresAuth } = require("express-openid-connect");
+// const { auth, requiresAuth } = require("express-openid-connect");
 
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.SECRET,
-  baseURL: process.env.BASE_URL,
-  clientID: process.env.CLIENT_ID,
-  issuerBaseURL: process.env.ISSUER_BASE_URL,
-};
+// const config = {
+//   authRequired: false,
+//   auth0Logout: true,
+//   secret: process.env.SECRET,
+//   baseURL: process.env.BASE_URL,
+//   clientID: process.env.CLIENT_ID,
+//   issuerBaseURL: process.env.ISSUER_BASE_URL,
+// };
 
-app.use(auth(config));
+// app.use(auth(config));
 
-app.get("/", (req, res) => {
-  try {
-    res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
-  } catch (e) {
-    console.log(e);
-  }
-});
+// app.get("/", (req, res) => {
+//   try {
+//     res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+//   } catch (e) {
+//     console.log(e);
+//   }
+// });
 
 // app.get("/users", requiresAuth(), (req, res) => {
 //   res.send(JSON.stringify(req.oidc.user));
