@@ -10,7 +10,7 @@ console.log(users)
 
 
 //add one
-
+routes.post('/', users.addUser)
 
 //get one - inCart
 

@@ -38,3 +38,13 @@ Content-Type: application/json
   "price": 15,
   "gift": true
 }
+
+//Users
+### Add a user
+POST http://localhost:3000/users
+Content-type: application/json
+
+{
+  "username": "superElf222",
+  "email": "galadrielrules@imaelf.com"
+}
