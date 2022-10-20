@@ -1,24 +1,33 @@
 //supplies routes
-const routes = require('express').Router();
-const users = require('../controllers/users');
-console.log(users)
+const routes = require("express").Router();
+const users = require("../controllers/users");
+console.log(users);
 
-//validators <-- to be added
-
+//validators
+const errorChecker = require("../validation/usersVal");
 
 //get all
-routes.get('/', users.getAllUsers)
+routes.get("/", users.getAllUsers);
 
 //add new user
-routes.post('/', users.addUser)
+routes.post("/", errorChecker.userCheck, users.addUser);
 
 //get user by username
-routes.get('/username/:username', users.getUserByUsername);
+routes.get(
+  "/username/:username",
+  errorChecker.usernameCheck,
+  users.getUserByUsername
+);
 
 //update user by id
-routes.put("/:id", users.updateUser)
+routes.put(
+  "/:id",
+  errorChecker.idCheck,
+  errorChecker.userCheck,
+  users.updateUser
+);
 
 //delete user by id
-routes.delete("/:id", users.deleteUser);
+routes.delete("/:id", errorChecker.idCheck, users.deleteUser);
 
 module.exports = routes;

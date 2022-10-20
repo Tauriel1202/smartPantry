@@ -1,4 +1,5 @@
 //users controller
+const { validationResult } = require('express-validator')
 const base = require("../dataBase/connect");
 const oId = require("mongodb").ObjectId;
 
@@ -11,7 +12,7 @@ async function getAllUsers(req, res) {
       .find()
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -58,7 +59,7 @@ async function getUserByUsername(req, res) {
       .find({ username: req.params.username })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {

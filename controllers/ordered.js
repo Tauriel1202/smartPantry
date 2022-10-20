@@ -11,7 +11,7 @@ async function getAllOrders(req, res) {
       .find()
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -63,7 +63,7 @@ async function getOrderByOrderId(req, res) {
       .find({ orderId: req.params.orderId })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -85,7 +85,7 @@ async function getOrderByDateOrdered(req, res) {
       .find({ dateOrdered: req.params.dateOrdered })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -107,7 +107,7 @@ async function getOrderByEta(req, res) {
       .find({ eta: req.params.eta })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {

@@ -1,5 +1,6 @@
 //USER TESTING
 //Localhost
+
 ### Get all
 GET http://localhost:3000/users
 
@@ -8,17 +9,20 @@ POST http://localhost:3000/users
 Content-type: application/json
 
 {
-  "username": "purpleduckfeet",
-  "email": "worldofducks1@thepond.splash"
+  "username": "apples",
+  "email": "buyapples@smushem.com"
 }
 
+### Get - username
+GET http://localhost:3000/users/username/Galadriel
+
 ### Update a user
-PUT http://localhost:3000/users/63508ac3feceef7e999219ed
+PUT http://localhost:3000/users/6350c1c6e8d3c71634a70d91
 Content-Type: application/json
 
 {
   "username": "rieMagi",
-  "email": "magicknight@knightacademy.org"
+  "email": "magicnight@knightacademy.org"
 }
 
 ### Delete a user

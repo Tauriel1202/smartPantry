@@ -3,7 +3,7 @@ const routes = require('express').Router();
 const ordered = require('../controllers/ordered');
 console.log(ordered)
 
-//validators <-- to be added
+//validators 
 
 
 //get all
