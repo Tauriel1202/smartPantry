@@ -10,7 +10,7 @@ app.use(cors());
 const dotenv = require("dotenv");
 dotenv.config();
 
-//login
+// login
 // const { auth, requiresAuth } = require("express-openid-connect");
 
 // const config = {

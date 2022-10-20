@@ -19,6 +19,31 @@ async function getAllUsers(req, res) {
   }
 }
 
+async function getUserByUsername(req, res) {
+  try {
+    await base
+      .connectToBase("users")
+      .find({ username: req.params.username })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+
+async function getUser(req, res) {
+  await base
+    .connectToBase("users")
+    .find()
+    .toArray()
+    .then((all) => {
+      console.log(all);
+      res.status(200).send(all);
+    });
+}
+
 async function addUser(req, res) {
   try {
     await base
@@ -101,3 +126,5 @@ module.exports = {
   updateUser,
   deleteUser,
 };
+
+

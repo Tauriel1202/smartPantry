@@ -6,10 +6,17 @@ console.log(users)
 //validators <-- to be added
 
 
+<<<<<<< HEAD
 //get all
 routes.get('/', users.getAllUsers)
 
 //add one
+=======
+//get all users
+routes.get('/', users.getAllUsers);
+
+//add new user
+>>>>>>> 2aab5430b0a9e42f6144e9a038fe330242d6ac8d
 routes.post('/', users.addUser)
 
 //get user by username
