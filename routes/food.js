@@ -6,20 +6,20 @@ console.log(food)
 //validators <-- to be added
 
 
-//get all
+//get all food
+routes.get('/', food.getAll);
 
-
-//add one
+//add one new food
 routes.post('/', food.addFood)
 
 //get one - inCart
-
+routes.get('/inCart/:inCart', food.getFoodByInCart);
 
 //get one - cat
-
+routes.get('/cat/:cat', food.getFoodByCat);
 
 //get one - itemName
-
+routes.get('/itemName/:itemName', food.getFoodByItemName);
 
 //update one - itemName
 routes.put("/:id", food.updateFood)

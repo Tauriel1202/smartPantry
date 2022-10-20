@@ -7,24 +7,24 @@ console.log(ordered)
 
 
 //get all
-
+routes.get('/', ordered.getAllOrders);
 
 //add one
 routes.post('/', ordered.addOrder)
 
 //get one - inCart
+routes.get('/orderId/:orderId', ordered.getOrderByOrderId);
 
+//get one order by dateOrdered
+routes.get('/dateOrdered/:dateOrdered', ordered.getOrderByDateOrdered);
 
-//get one - color
+//get one order by eta
+routes.get('/eta/:eta', ordered.getOrderByEta);
 
-
-//get one - itemName
-
-
-//update one - itemName
+//update one order by id
 routes.put("/:id", ordered.updateOrder)
 
-//delete one - itemName
+//delete one order by id
 routes.delete("/:id", ordered.deleteOrder);
 
 

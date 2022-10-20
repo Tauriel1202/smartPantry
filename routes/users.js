@@ -6,25 +6,19 @@ console.log(users)
 //validators <-- to be added
 
 
-//get all
+//get all users
+routes.get('/', users.getAllUsers);
 
-
-//add one
+//add new user
 routes.post('/', users.addUser)
 
-//get one - inCart
+//get user by username
+routes.get('/username/:username', users.getUserByUsername);
 
-
-//get one - color
-
-
-//get one - itemName
-
-
-//update one - itemName
+//update user by id
 routes.put("/:id", users.updateUser)
 
-//delete one - itemName
+//delete user by id
 routes.delete("/:id", users.deleteUser);
 
 module.exports = routes;

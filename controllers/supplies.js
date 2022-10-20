@@ -3,6 +3,66 @@ const base = require("../dataBase/connect");
 
 console.log("Supply Controllers: ");
 
+async function getAllSupplies(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .find()
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getSupplyByItemName(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .find({ itemName: req.params.itemName })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getSupplyByInCart(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .find({ inCart: req.params.inCart })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getSupplyByColor(req, res) {
+  try {
+    await base
+      .connectToBase("supplies")
+      .find({ color: req.params.color })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function addSupply(req, res) {
   try {
     await base
@@ -59,4 +119,14 @@ async function deleteSupply(req, res) {
     res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
-module.exports = { addSupply, updateSupply, deleteSupply };
+
+module.exports = {
+  getAllSupplies,
+  getSupplyByItemName,
+  getSupplyByInCart,
+  getSupplyByColor,
+  addSupply,
+  updateSupply,
+  deleteSupply,
+};
+

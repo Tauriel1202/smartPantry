@@ -3,6 +3,36 @@ const base = require("../dataBase/connect");
 
 console.log("User Controllers: ");
 
+async function getAllUsers(req, res) {
+  try {
+    await base
+      .connectToBase("users")
+      .find()
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getUserByUsername(req, res) {
+  try {
+    await base
+      .connectToBase("users")
+      .find({ username: req.params.username })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function addUser(req, res) {
   try {
     await base
@@ -56,4 +86,12 @@ async function deleteUser(req, res) {
   }
 }
 
-module.exports = { addUser, updateUser, deleteUser };
+module.exports = {
+  getAllUsers,
+  getUserByUsername,
+  addUser,
+  updateUser,
+  deleteUser,
+};
+
+

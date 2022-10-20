@@ -7,18 +7,19 @@ console.log(supplies)
 
 
 //get all
-
+routes.get('/', supplies.getAllSupplies);
 
 //add one
 routes.post('/', supplies.addSupply)
 
 //get one - inCart
-
+routes.get('/inCart/:inCart', supplies.getSupplyByInCart);
 
 //get one - color
-
+routes.get('/color/:color', supplies.getSupplyByColor);
 
 //get one - itemName
+routes.get('/itemName/:itemName', supplies.getSupplyByItemName);
 
 //update one - itemName
 routes.put("/:id", supplies.updateSupply)

@@ -3,6 +3,66 @@ const base = require("../dataBase/connect");
 
 console.log("Orders Controllers: ");
 
+async function getAllOrders(req, res) {
+  try {
+    await base
+      .connectToBase("ordered")
+      .find()
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getOrderByOrderId(req, res) {
+  try {
+    await base
+      .connectToBase("ordered")
+      .find({ orderId: req.params.orderId })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getOrderByDateOrdered(req, res) {
+  try {
+    await base
+      .connectToBase("ordered")
+      .find({ dateOrdered: req.params.dateOrdered })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result); 
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getOrderByEta(req, res) {
+  try {
+    await base
+      .connectToBase("ordered")
+      .find({ eta: req.params.eta })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function addOrder(req, res) {
   try {
     await base
@@ -66,4 +126,13 @@ async function deleteOrder(req, res) {
     res.status(500).send(`🚫 ${e} 🚫`);
   }
 }
-module.exports = { addOrder, updateOrder, deleteOrder };
+
+module.exports = {
+  getAllOrders,
+  getOrderByOrderId,
+  getOrderByDateOrdered,
+  getOrderByEta,
+  addOrder,
+  updateOrder,
+  deleteOrder,
+};

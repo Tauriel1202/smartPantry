@@ -3,6 +3,62 @@ const base = require("../dataBase/connect");
 
 console.log("Food Controllers: ");
 
+async function getAllFood(req, res) {
+  try {
+    await base
+      .find()
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getFoodByCat(req, res) {
+  try {
+    await base
+      .find({ category: req.params.category })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getFoodByItemName(req, res) {
+  try {
+    await base
+      .find({ itemName: req.params.itemName })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getFoodByInCart(req, res) {
+  try {
+    await base
+      .find({ inCart: req.params.inCart })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function addFood(req, res) {
   try {
     await base
@@ -60,4 +116,16 @@ async function deleteFood(req, res) {
   }
 }
 
-module.exports = { addFood, updateFood, deleteFood };
+module.exports = {
+  getAllFood,
+  getFoodByCat,
+  getFoodByItemName,
+  getFoodByInCart,
+  addFood,
+  updateFood,
+  deleteFood,
+};
+
+
+
+
