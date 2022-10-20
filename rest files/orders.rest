@@ -9,26 +9,35 @@ POST http://localhost:3000/ordered
 Content-Type: application/json
 
 {
-  "itemName": "headphones", 
-  "quantityOrdered": 1,
-  "color": "white",
-  "dateOrdered": "11/12/22",
-  "eta": "11/20/22",
-  "price": 350,
+  "itemName": "speaker", 
+  "quantityOrdered": 2,
+  "color": "black",
+  "dateOrdered": "11/29/21",
+  "eta": "12/14/21",
+  "price": 250,
   "gift": true
 }
 
+### Get - dateOrdered
+GET http://localhost:3000/ordered/dateOrdered/11
+
+### Get - eta
+GET http://localhost:3000/ordered/eta
+
+### Get - id
+GET http://localhost:3000/ordered/634f202e8844b094e6c0f4e0
+
 ### Update an Order
-PUT http://localhost:3000/ordered/63507be64449b8fc8f81430b
+PUT http://localhost:3000/ordered/6350c5dd10cad1ebcc6e9af5
 Content-Type: application/json
 
 {
-  "itemName": "headphones", 
+  "itemName": "speaker", 
   "quantityOrdered": 2,
-  "color": "white",
-  "dateOrdered": "11/22/22",
-  "eta": "12/03/22",
-  "price": 450,
+  "color": "black",
+  "dateOrdered": "11/29/21",
+  "eta": "12/14/21",
+  "price": 250,
   "gift": true
 }
 

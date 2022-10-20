@@ -4,27 +4,27 @@ const ordered = require('../controllers/ordered');
 console.log(ordered)
 
 //validators 
-
+const errorChecker = require('../validation/ordersVal')
 
 //get all
 routes.get('/', ordered.getAllOrders);
 
 //add one
-routes.post('/', ordered.addOrder)
-
-//get one - inCart
-routes.get('/orderId/:orderId', ordered.getOrderByOrderId);
+routes.post('/', errorChecker.orderChecker, ordered.addOrder)
 
 //get one order by dateOrdered
-routes.get('/dateOrdered/:dateOrdered', ordered.getOrderByDateOrdered);
+routes.get('/dateOrdered/:dateOrdered', errorChecker.dateOrderedCheck, ordered.getOrderByDateOrdered);
 
 //get one order by eta
-routes.get('/eta/:eta', ordered.getOrderByEta);
+routes.get('/eta/:eta', errorChecker.etaCheck, ordered.getOrderByEta);
+
+//get one - id
+routes.get('/:id', errorChecker.idCheck, ordered.getOrderByOrderId);
 
 //update one - id
-routes.put("/:id", ordered.updateOrder)
+routes.put("/:id", errorChecker.idCheck, errorChecker.orderChecker, ordered.updateOrder)
 
 //delete one - id
-routes.delete("/:id", ordered.deleteOrder);
+routes.delete("/:id", errorChecker.idCheck, ordered.deleteOrder);
 
 module.exports = routes;

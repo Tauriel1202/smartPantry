@@ -1,4 +1,5 @@
 //orders controller
+const { validationResult } = require('express-validator')
 const base = require("../dataBase/connect");
 const oId = require("mongodb").ObjectId;
 
@@ -60,7 +61,7 @@ async function getOrderByOrderId(req, res) {
   try {
     await base
       .connectToBase("ordered")
-      .find({ orderId: req.params.orderId })
+      .find({ _id: new oId(req.params.id) })
       .toArray()
       .then((result) => {
         console.log(result);
