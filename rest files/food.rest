@@ -19,7 +19,7 @@ Content-Type: application/json
 GET http://localhost:3000/food/cat/meat
 
 ### Get - inCart X
-GET http://localhost:3000/food/inCart/
+GET http://localhost:3000/food/inCart/false
 
 ### Get - itemName
 GET http://localhost:3000/food/itemName/grapes

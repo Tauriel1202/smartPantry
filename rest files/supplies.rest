@@ -18,6 +18,12 @@ Content-Type: application/json
 ### Get - inCart
 GET http://localhost:3000/supplies/inCart/true
 
+### Get - color
+GET http://localhost:3000/supplies/color/orange
+
+### Get - itemName
+GET http://localhost:3000/supplies/itemName/toilet paper
+
 ### Update a non-food item
 PUT http://localhost:3000/supplies/634f6d901c82d60bdfaf317e
 Content-Type: application/json

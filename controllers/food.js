@@ -61,7 +61,7 @@ async function getFoodByCat(req, res) {
       .find({ cat: req.params.cat })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -83,7 +83,7 @@ async function getFoodByItemName(req, res) {
       .find({ itemName: req.params.itemName })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -105,7 +105,7 @@ async function getFoodByInCart(req, res) {
       .find({ inCart: req.params.inCart })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
