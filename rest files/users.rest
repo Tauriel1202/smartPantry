@@ -8,8 +8,8 @@ POST http://localhost:3000/users
 Content-type: application/json
 
 {
-  "username": "rieMag",
-  "email": "magicknight@knightacademy.org"
+  "username": "purpleduckfeet",
+  "email": "worldofducks1@thepond.splash"
 }
 
 ### Update a user

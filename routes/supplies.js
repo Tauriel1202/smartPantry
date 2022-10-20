@@ -4,7 +4,7 @@ const supplies = require('../controllers/supplies');
 console.log(supplies)
 
 //validators <-- to be added
-
+const errorChecker = require('../validation/supplyVal')
 
 //get all
 routes.get('/', supplies.getAllSupplies);

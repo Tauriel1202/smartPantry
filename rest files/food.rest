@@ -7,22 +7,31 @@ POST http://localhost:3000/food
 Content-Type: application/json
 
 {
-  "cat": "vegetable",
-  "itemName": "celery",
-  "stock": 0,
-  "inCart": true
+  "cat": "",
+  "itemName": "",
+  "stock": "",
+  "inCart": ""
 }
 
+### Get - cat
+GET http://localhost:3000/food/cat/meat
+
+### Get - inCart X
+GET http://localhost:3000/food/inCart/
+
+### Get - itemName
+GET http://localhost:3000/food/itemName/grapes
+
 ### Update food item
-PUT http://localhost:3000/food/634f6cc01850b2fd990b9e64
+PUT http://localhost:3000/food/634f5801a6a1d1feb024b78b
 Content-Type: application/json
 
 {
   "cat": "vegetable",
   "itemName": "celery",
-  "stock": 1,
-  "inCart": false
+  "stock": "0",
+  "inCart": true
 }
 
 ### Delete food item
-DELETE http://localhost:3000/food/634f6cc01850b2fd990b9e64
+DELETE http://localhost:3000/food/6350a52e6e3dec5ac03ce32b

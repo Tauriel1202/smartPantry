@@ -4,7 +4,6 @@ const oId = require("mongodb").ObjectId;
 
 console.log("User Controllers: ");
 
-<<<<<<< HEAD
 async function getAllUsers(req, res) {
   try {
     await base
@@ -18,32 +17,6 @@ async function getAllUsers(req, res) {
   } catch (err) {
     res.status(500).send(err);
   }
-}
-
-async function getUserByUsername(req, res) {
-  try {
-    await base
-      .connectToBase("users")
-      .find({ username: req.params.username })
-      .toArray()
-      .then((result) => {
-        res.send(result);
-        res.status(200).send(result);
-      });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-=======
-async function getUser(req, res) {
-  await base
-    .connectToBase("users")
-    .find()
-    .toArray()
-    .then((all) => {
-      console.log(all);
-      res.status(200).send(all);
-    });
->>>>>>> refs/remotes/origin/main
 }
 
 async function addUser(req, res) {
@@ -61,6 +34,21 @@ async function addUser(req, res) {
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
     res.status(500).send(`🚫 ${e} 🚫`);
+  }
+}
+
+async function getUserByUsername(req, res) {
+  try {
+    await base
+      .connectToBase("users")
+      .find({ username: req.params.username })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
   }
 }
 
@@ -106,7 +94,6 @@ async function deleteUser(req, res) {
   }
 }
 
-<<<<<<< HEAD
 module.exports = {
   getAllUsers,
   getUserByUsername,
@@ -114,8 +101,3 @@ module.exports = {
   updateUser,
   deleteUser,
 };
-
-
-=======
-module.exports = { getUser, addUser, updateUser, deleteUser };
->>>>>>> refs/remotes/origin/main

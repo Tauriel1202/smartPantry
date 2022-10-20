@@ -1,4 +1,5 @@
 //food controller
+const { validationResult } = require("express-validator");
 const base = require("../dataBase/connect");
 const oId = require("mongodb").ObjectId;
 
@@ -7,52 +8,11 @@ console.log("Food Controllers: ");
 async function getAllFood(req, res) {
   try {
     await base
+      .connectToBase("food")
       .find()
       .toArray()
       .then((result) => {
-        res.send(result);
-        res.status(200).send(result);
-      });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-}
-
-async function getFoodByCat(req, res) {
-  try {
-    await base
-      .find({ category: req.params.category })
-      .toArray()
-      .then((result) => {
-        res.send(result);
-        res.status(200).send(result);
-      });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-}
-
-async function getFoodByItemName(req, res) {
-  try {
-    await base
-      .find({ itemName: req.params.itemName })
-      .toArray()
-      .then((result) => {
-        res.send(result);
-        res.status(200).send(result);
-      });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-}
-
-async function getFoodByInCart(req, res) {
-  try {
-    await base
-      .find({ inCart: req.params.inCart })
-      .toArray()
-      .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -61,6 +21,13 @@ async function getFoodByInCart(req, res) {
 }
 
 async function addFood(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("food")
@@ -80,7 +47,80 @@ async function addFood(req, res) {
   }
 }
 
+async function getFoodByCat(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    await base
+      .connectToBase("food")
+      .find({ cat: req.params.cat })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getFoodByItemName(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    await base
+      .connectToBase("food")
+      .find({ itemName: req.params.itemName })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
+async function getFoodByInCart(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    await base
+      .connectToBase("food")
+      .find({ inCart: req.params.inCart })
+      .toArray()
+      .then((result) => {
+        res.send(result);
+        res.status(200).send(result);
+      });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+
 async function updateFood(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("food")
@@ -108,6 +148,13 @@ async function updateFood(req, res) {
 }
 
 async function deleteFood(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .connectToBase("food")
@@ -133,7 +180,3 @@ module.exports = {
   updateFood,
   deleteFood,
 };
-
-
-
-

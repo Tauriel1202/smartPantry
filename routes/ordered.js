@@ -21,22 +21,10 @@ routes.get('/dateOrdered/:dateOrdered', ordered.getOrderByDateOrdered);
 //get one order by eta
 routes.get('/eta/:eta', ordered.getOrderByEta);
 
-<<<<<<< HEAD
-//update one order by id
-routes.put("/:id", ordered.updateOrder)
-
-//delete one order by id
-=======
-
-//get one - itemName
-
-
 //update one - id
 routes.put("/:id", ordered.updateOrder)
 
 //delete one - id
->>>>>>> refs/remotes/origin/main
 routes.delete("/:id", ordered.deleteOrder);
-
 
 module.exports = routes;
