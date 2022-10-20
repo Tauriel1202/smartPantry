@@ -7,7 +7,7 @@ console.log(food)
 
 
 //get all food
-routes.get('/', food.getAll);
+routes.get('/', food.getAllFood);
 
 //add one new food
 routes.post('/', food.addFood)

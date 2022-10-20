@@ -6,17 +6,10 @@ console.log(users)
 //validators <-- to be added
 
 
-<<<<<<< HEAD
 //get all users
 routes.get('/', users.getAllUsers);
 
 //add new user
-=======
-//get all
-routes.get('/', users.getUser)
-
-//add one
->>>>>>> refs/remotes/origin/main
 routes.post('/', users.addUser)
 
 //get user by username
