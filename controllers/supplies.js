@@ -12,7 +12,7 @@ async function getAllSupplies(req, res) {
       .find()
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -48,7 +48,12 @@ async function addSupply(req, res) {
 }
 
 async function getSupplyByItemName(req, res) {
-  const 
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   try {
     await base
@@ -56,7 +61,7 @@ async function getSupplyByItemName(req, res) {
       .find({ itemName: req.params.itemName })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -65,13 +70,20 @@ async function getSupplyByItemName(req, res) {
 }
 
 async function getSupplyByInCart(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("supplies")
       .find({ inCart: req.params.inCart })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -80,13 +92,20 @@ async function getSupplyByInCart(req, res) {
 }
 
 async function getSupplyByColor(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("supplies")
       .find({ color: req.params.color })
       .toArray()
       .then((result) => {
-        res.send(result);
+        console.log(result);
         res.status(200).send(result);
       });
   } catch (err) {
@@ -95,6 +114,13 @@ async function getSupplyByColor(req, res) {
 }
 
 async function updateSupply(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("supplies")
@@ -122,6 +148,13 @@ async function updateSupply(req, res) {
 }
 
 async function deleteSupply(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     await base
       .connectToBase("supplies")

@@ -19,32 +19,14 @@ async function getAllUsers(req, res) {
   }
 }
 
-async function getUserByUsername(req, res) {
-  try {
-    await base
-      .connectToBase("users")
-      .find({ username: req.params.username })
-      .toArray()
-      .then((result) => {
-        res.send(result);
-        res.status(200).send(result);
-      });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-
-async function getUser(req, res) {
-  await base
-    .connectToBase("users")
-    .find()
-    .toArray()
-    .then((all) => {
-      console.log(all);
-      res.status(200).send(all);
-    });
-}
-
 async function addUser(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .connectToBase("users")
@@ -63,6 +45,13 @@ async function addUser(req, res) {
 }
 
 async function getUserByUsername(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .connectToBase("users")
@@ -78,6 +67,13 @@ async function getUserByUsername(req, res) {
 }
 
 async function updateUser(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .connectToBase("users")
@@ -103,6 +99,13 @@ async function updateUser(req, res) {
 }
 
 async function deleteUser(req, res) {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   try {
     await base
       .connectToBase("users")
@@ -126,5 +129,3 @@ module.exports = {
   updateUser,
   deleteUser,
 };
-
-

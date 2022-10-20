@@ -9,11 +9,14 @@ POST http://localhost:3000/supplies
 Content-Type: application/json
 
 {
-  "itemName": "pencil",
-    "stock": 5,
+  "itemName": "gatorade",
+    "stock": 2,
     "inCart": false,
-    "color": "grey/black"
+    "color": "orange"
 }
+
+### Get - inCart
+GET http://localhost:3000/supplies/inCart/true
 
 ### Update a non-food item
 PUT http://localhost:3000/supplies/634f6d901c82d60bdfaf317e

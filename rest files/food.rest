@@ -1,4 +1,6 @@
 //FOOD TESTING
+//Localhost
+
 ### Get all
 GET http://localhost:3000/food
 

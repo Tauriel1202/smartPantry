@@ -7,11 +7,7 @@ console.log(food);
 const errorChecker = require("../validation/foodVal");
 
 //get all food
-<<<<<<< HEAD
 routes.get("/", food.getAllFood);
-=======
-routes.get('/', food.getAllFood);
->>>>>>> 2aab5430b0a9e42f6144e9a038fe330242d6ac8d
 
 //add one new food
 routes.post("/", errorChecker.foodCheck, food.addFood);
