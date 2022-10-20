@@ -1,0 +1,36 @@
+//ORDER TESTING
+//Localhost
+
+### Get all orders
+GET http://localhost:3000/ordered
+
+### Add an order
+POST http://localhost:3000/ordered
+Content-Type: application/json
+
+{
+  "itemName": "headphones", 
+  "quantityOrdered": 1,
+  "color": "white",
+  "dateOrdered": "11/12/22",
+  "eta": "11/20/22",
+  "price": 350,
+  "gift": true
+}
+
+### Update an Order
+PUT http://localhost:3000/ordered/63507be64449b8fc8f81430b
+Content-Type: application/json
+
+{
+  "itemName": "headphones", 
+  "quantityOrdered": 2,
+  "color": "white",
+  "dateOrdered": "11/22/22",
+  "eta": "12/03/22",
+  "price": 450,
+  "gift": true
+}
+
+### Delete an Order
+DELETE http://localhost:3000/ordered/63507e0bf59ff87a473b1549

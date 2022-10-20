@@ -1,0 +1,25 @@
+//USER TESTING
+//Localhost
+### Get all
+GET http://localhost:3000/users
+
+### Add a user
+POST http://localhost:3000/users
+Content-type: application/json
+
+{
+  "username": "rieMag",
+  "email": "magicknight@knightacademy.org"
+}
+
+### Update a user
+PUT http://localhost:3000/users/63508ac3feceef7e999219ed
+Content-Type: application/json
+
+{
+  "username": "rieMagi",
+  "email": "magicknight@knightacademy.org"
+}
+
+### Delete a user
+DELETE http://localhost:3000/users/63508ac3feceef7e999219ed

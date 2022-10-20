@@ -119,7 +119,7 @@
         }
       }
     },
-    "/food/{itemName}": {
+    "/food/{id}": {
       "get": {
         "tags": ["food"],
         "summary": "Get food item by name",
@@ -147,11 +147,9 @@
         "tags": ["food"],
         "summary": "Update food item",
         "description": "Modify food",
-        "produces": ["application/json"],
-        "operationId": "updateFood",
         "parameters": [
           {
-            "name": "itemName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -195,7 +193,7 @@
         "description": "Delete a Food Item!",
         "parameters": [
           {
-            "name": "itemName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -314,16 +312,14 @@
         }
       }
     },
-    "/supplies/{itemName}": {
+    "/supplies/{id}": {
       "get": {
         "tags": ["supplies"],
         "summary": "Get supply item by name",
         "description": "Returns supply item by name",
-        "produces": ["application/json"],
-        "operationId": "getSuppliesByName",
         "parameters": [
           {
-            "name": "itemName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -342,11 +338,9 @@
         "tags": ["supplies"],
         "summary": "Update a non-food item!",
         "description": "Modify supply",
-        "produces": ["application/json"],
-        "operationId": "updateSupply",
         "parameters": [
           {
-            "name": "itemName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -390,7 +384,7 @@
         "description": "Delete an Item!",
         "parameters": [
           {
-            "name": "itemName",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -519,7 +513,7 @@
         }
       }
     },
-    "/ordered/{orderId}": {
+    "/ordered/{id}": {
       "get": {
         "tags": ["ordered"],
         "summary": "Get ordered item by id",
@@ -547,11 +541,9 @@
         "tags": ["ordered"],
         "summary": "Update an Order!",
         "description": "Modify order",
-        "produces": ["application/json"],
-        "operationId": "putOrderId",
         "parameters": [
           {
-            "name": "orderId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -605,7 +597,7 @@
         "description": "Delete an Order!",
         "parameters": [
           {
-            "name": "orderId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -711,16 +703,14 @@
         }
       }
     },
-    "/users/{username}": {
+    "/users/{id}": {
       "get": {
         "tags": ["users"],
         "summary": "Get user by username",
         "description": "Returns user by username",
-        "produces": ["application/json"],
-        "operationId": "getUsersByUsername",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -739,11 +729,9 @@
         "tags": ["users"],
         "summary": "Update a User!",
         "description": "Modify username",
-        "produces": ["application/json"],
-        "operationId": "putUsername",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -779,7 +767,7 @@
         "description": "Delete a user!",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"

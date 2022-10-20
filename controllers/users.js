@@ -1,8 +1,10 @@
 //users controller
 const base = require("../dataBase/connect");
+const oId = require("mongodb").ObjectId;
 
 console.log("User Controllers: ");
 
+<<<<<<< HEAD
 async function getAllUsers(req, res) {
   try {
     await base
@@ -31,6 +33,17 @@ async function getUserByUsername(req, res) {
   } catch (err) {
     res.status(500).send(err);
   }
+=======
+async function getUser(req, res) {
+  await base
+    .connectToBase("users")
+    .find()
+    .toArray()
+    .then((all) => {
+      console.log(all);
+      res.status(200).send(all);
+    });
+>>>>>>> refs/remotes/origin/main
 }
 
 async function addUser(req, res) {
@@ -55,13 +68,20 @@ async function updateUser(req, res) {
   try {
     await base
       .connectToBase("users")
-      .insertOne({
-        username: req.body.username,
-        email: req.body.email,
-      })
+      .updateOne(
+        {
+          _id: new oId(req.params.id),
+        },
+        {
+          $set: {
+            username: req.body.username,
+            email: req.body.email,
+          },
+        }
+      )
       .then((user) => {
         console.log(user);
-        res.status(201).send(user);
+        res.status(204).send(user);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
@@ -73,12 +93,12 @@ async function deleteUser(req, res) {
   try {
     await base
       .connectToBase("users")
-      .insertOne({
-        username: req.body.username,
+      .deleteOne({
+        _id: new oId(req.params.id),
       })
       .then((user) => {
         console.log(user);
-        res.status(201).send(user);
+        res.status(200).send(user);
       });
   } catch (e) {
     console.log(`🚫 ${e} 🚫`);
@@ -86,6 +106,7 @@ async function deleteUser(req, res) {
   }
 }
 
+<<<<<<< HEAD
 module.exports = {
   getAllUsers,
   getUserByUsername,
@@ -95,3 +116,6 @@ module.exports = {
 };
 
 
+=======
+module.exports = { getUser, addUser, updateUser, deleteUser };
+>>>>>>> refs/remotes/origin/main

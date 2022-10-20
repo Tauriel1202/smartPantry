@@ -1,0 +1,28 @@
+//FOOD TESTING
+### Get all
+GET http://localhost:3000/food
+
+###Add a food item
+POST http://localhost:3000/food
+Content-Type: application/json
+
+{
+  "cat": "vegetable",
+  "itemName": "celery",
+  "stock": 0,
+  "inCart": true
+}
+
+### Update food item
+PUT http://localhost:3000/food/634f6cc01850b2fd990b9e64
+Content-Type: application/json
+
+{
+  "cat": "vegetable",
+  "itemName": "celery",
+  "stock": 1,
+  "inCart": false
+}
+
+### Delete food item
+DELETE http://localhost:3000/food/634f6cc01850b2fd990b9e64
