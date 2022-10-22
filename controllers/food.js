@@ -1,9 +1,11 @@
-//food controller
+// food controller
 const { validationResult } = require("express-validator");
 const base = require("../dataBase/connect");
 const oId = require("mongodb").ObjectId;
 
 console.log("Food Controllers: ");
+
+
 
 async function getAllFood(req, res) {
   try {
