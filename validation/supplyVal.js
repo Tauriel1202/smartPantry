@@ -16,7 +16,7 @@ const colorCheck = [
   check(
     "color",
     "You must input a color. If there is not one, type: n/a"
-  ).notEmpty(),
+  ).isLength({min: 2})
 ];
 
 const supplyCheck = [

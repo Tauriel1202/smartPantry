@@ -19,16 +19,16 @@ const catCheck = [
   check(
     "cat",
     "What type is your food item: fruit, vegetable, meat..."
-  ).notEmpty(),
+  ).notEmpty().isLength({min: 2})
 ];
 
 const inCartCheck = [
-  check("inCart", "Enter a cart status.").notEmpty(),
+  check("inCart", "Enter a cart status.").isLength({min: 2}),
   check("inCart", "Must be a boolean.").isBoolean(),
 ];
 
 const itemNameCheck = [
-  check("itemName", "The name of your item is required.").notEmpty(),
+  check("itemName", "The name of your item is required.").isLength({min: 2}),
 ];
 
 const foodCheck = [

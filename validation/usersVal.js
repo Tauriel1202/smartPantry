@@ -13,7 +13,7 @@ function errorReturn(req, res, test) {
 }
 
 const usernameCheck = [
-  check("username", "This is a required field.").notEmpty(),
+  check("username", "This is a required field.").isLength({min: 2})
 ];
 
 const userCheck = [

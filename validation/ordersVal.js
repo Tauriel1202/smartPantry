@@ -14,11 +14,11 @@ function errorReturn(req, res, test) {
 }
 
 const dateOrderedCheck = [
-  check('dateOrdered', 'When did you order? mm/dd/yy format').notEmpty()
+  check('dateOrdered', 'When did you order? mm/dd/yy format').isLength({min: 2})
 ]
 
 const etaCheck = [
-  check('eta', 'When is it expected to arrive? mm/dd/yy format').notEmpty()
+  check('eta', 'When is it expected to arrive? mm/dd/yy format').isLength({min: 2})
 ]
 
 const orderChecker = [
