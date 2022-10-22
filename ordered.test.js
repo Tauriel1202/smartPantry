@@ -1,4 +1,4 @@
-const food = require("./controllers/ordered");
+const ordered = require("./controllers/ordered");
 
 
 test("get all orders", () => {
