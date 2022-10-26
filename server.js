@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/users", requiresAuth(), (req, res) => {
+app.get("/profile", requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
