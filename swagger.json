@@ -686,27 +686,6 @@
       }
     },
     "/users/{id}": {
-      "get": {
-        "tags": ["users"],
-        "summary": "Get user by id",
-        "description": "Returns user by id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
       "put": {
         "tags": ["users"],
         "summary": "Update a user!",
