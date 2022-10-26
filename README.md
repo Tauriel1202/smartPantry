@@ -6,3 +6,28 @@ Team Members:
 🌊 Courtney Christensen
 🎓 Theran Meadows
 
+Collections:
+Food 🥥
+- cat
+- itemName
+- stock
+- inCart
+
+Supplies 📌
+- itemName
+- stock
+- inCart
+- color
+
+Ordered 📦
+- itemName
+- dateOrdered
+- eta
+- color
+- quantityOrdered
+- price
+- gift
+
+Users 😀
+- username
+- email
