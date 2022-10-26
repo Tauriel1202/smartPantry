@@ -636,8 +636,8 @@
       },
       "post": {
         "tags": ["users"],
-        "summary": "Add a food item!",
-        "description": "Add a food item to your inventory!",
+        "summary": "Add a user!",
+        "description": "Add a user!",
         "parameters": [
           {
             "name": "body",
@@ -657,7 +657,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Item Added!"
+            "description": "User Added!"
           }
         }
       }
@@ -709,8 +709,8 @@
       },
       "put": {
         "tags": ["users"],
-        "summary": "Add a food item!",
-        "description": "Add a food item to your inventory!",
+        "summary": "Update a user!",
+        "description": "Update a user!",
         "parameters": [
           {
             "name": "body",
@@ -730,7 +730,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Supply Item Updated!"
+            "description": "User Updated!"
           }
         }
       },
