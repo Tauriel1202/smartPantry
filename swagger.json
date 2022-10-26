@@ -635,7 +635,7 @@
         }
       },
       "post": {
-        "tags": ["food"],
+        "tags": ["users"],
         "summary": "Add a food item!",
         "description": "Add a food item to your inventory!",
         "parameters": [
@@ -708,7 +708,7 @@
         }
       },
       "put": {
-        "tags": ["food"],
+        "tags": ["users"],
         "summary": "Add a food item!",
         "description": "Add a food item to your inventory!",
         "parameters": [
