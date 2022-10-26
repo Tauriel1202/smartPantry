@@ -648,7 +648,7 @@
                 "username": {
                   "example": "myusername1"
                 },
-                "itemName": {
+                "email": {
                   "example": "myemail@gmail.com"
                 }
               }
@@ -721,7 +721,7 @@
                 "username": {
                   "example": "myusername1"
                 },
-                "itemName": {
+                "email": {
                   "example": "myemail@gmail.com"
                 }
               }
