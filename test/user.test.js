@@ -6,13 +6,13 @@ describe("insert", () => {
     const user = base.connectToBase("users");
 
     const mockUser = {
-      username: "testUser",
+      username: "user",
       email: "testemail@deleteme.later"
     };
     await user.insertOne(mockUser);
 
     const insertedUser = await user.findOne({
-      username: "testUser"
+      username: "user"
     });
 
     expect(insertedUser).toEqual(mockUser);

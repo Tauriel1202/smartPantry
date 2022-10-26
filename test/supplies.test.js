@@ -6,7 +6,7 @@ describe("insert", () => {
     const supply = base.connectToBase("supplies");
 
     const mockSupply = {
-      itemName: "testSupply",
+      itemName: "supply",
       stock: 1,
       inCart: false,
       color: "testColor",
@@ -14,7 +14,7 @@ describe("insert", () => {
     await supply.insertOne(mockSupply);
 
     const insertedSupply = await supply.findOne({
-      itemName: "testSupply",
+      itemName: "supply",
     });
 
     expect(insertedSupply).toEqual(mockSupply);

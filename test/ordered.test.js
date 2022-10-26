@@ -6,8 +6,8 @@ describe("insert", () => {
     const order = base.connectToBase("ordered");
 
     const mockOrder = {
-      itemName: "testOrder",
-      quantityOrdered: 1,
+      itemName: "order",
+      quantityOrdered: 12,
       color: "testColor",
       dateOrdered: "mm/dd/yy",
       eta: "mm/dd/yy",
@@ -17,7 +17,7 @@ describe("insert", () => {
     await order.insertOne(mockOrder);
 
     const insertedOrder = await order.findOne({
-      itemName: "testOrder",
+      itemName: "order",
     });
 
     expect(insertedOrder).toEqual(mockOrder);

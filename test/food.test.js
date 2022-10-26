@@ -7,14 +7,14 @@ describe("insert", () => {
     const food = base.connectToBase("food");
 
     const mockFood = {
-      cat: "testCat",
-      itemName: "testFood",
-      stock: 10,
+      cat: "cat",
+      itemName: "food",
+      stock: 1,
       inCart: false,
     };
     await food.insertOne(mockFood);
 
-    const insertedFood = await food.findOne({ itemName: "testFood" });
+    const insertedFood = await food.findOne({ itemName: "food" });
     expect(insertedFood).toEqual(mockFood);
   });
 });
