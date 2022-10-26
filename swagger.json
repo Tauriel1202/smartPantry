@@ -635,12 +635,12 @@
         }
       },
       "post": {
-        "tags": ["users"],
-        "summary": "Add a user!",
-        "description": "Add a user!",
+        "tags": ["food"],
+        "summary": "Add a food item!",
+        "description": "Add a food item to your inventory!",
         "parameters": [
           {
-            "body": "body",
+            "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
@@ -648,13 +648,18 @@
                 "username": {
                   "example": "myusername1"
                 },
-                "email": {
+                "itemName": {
                   "example": "myemail@gmail.com"
                 }
               }
             }
           }
-        ]
+        ],
+        "responses": {
+          "201": {
+            "description": "Item Added!"
+          }
+        }
       }
     },
     "/users/username/{username}": {
@@ -703,18 +708,12 @@
         }
       },
       "put": {
-        "tags": ["users"],
-        "summary": "Update a User!",
-        "description": "Modify username",
+        "tags": ["food"],
+        "summary": "Add a food item!",
+        "description": "Add a food item to your inventory!",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "body": "body",
+            "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
@@ -722,7 +721,7 @@
                 "username": {
                   "example": "myusername1"
                 },
-                "email": {
+                "itemName": {
                   "example": "myemail@gmail.com"
                 }
               }
@@ -730,11 +729,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Username Updated"
-          },
-          "400": {
-            "description": "Bad Request"
+          "204": {
+            "description": "Supply Item Updated!"
           }
         }
       },
