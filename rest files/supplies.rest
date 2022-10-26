@@ -9,9 +9,9 @@ POST http://localhost:3000/supplies
 Content-Type: application/json
 
 {
-  "itemName": "gatorade",
+  "itemName": "chex",
     "stock": 2,
-    "inCart": false,
+    "inCart": "false",
     "color": "orange"
 }
 
