@@ -19,7 +19,7 @@ routes.get('/dateOrdered/:dateOrdered', errorChecker.dateOrderedCheck, ordered.g
 routes.get('/eta/:eta', errorChecker.etaCheck, ordered.getOrderByEta);
 
 //get one - id
-routes.get('/:id', errorChecker.idCheck, ordered.getOrderByOrderId);
+routes.get('/:id', ordered.getOrderByOrderId);
 
 //update one - id
 routes.put("/:id", errorChecker.idCheck, errorChecker.orderChecker, ordered.updateOrder)

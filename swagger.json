@@ -522,11 +522,9 @@
         "tags": ["ordered"],
         "summary": "Get ordered item by id",
         "description": "Returns ordered item by id",
-        "produces": ["application/json"],
-        "operationId": "getOrderedById",
         "parameters": [
           {
-            "name": "orderId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
